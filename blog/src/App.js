@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { Button } from 'react-bootstrap'
 
 function App() {
 
@@ -66,7 +67,7 @@ function App() {
             </h4>
 
             <p>2월 17일 발행</p>
-            <button onClick={(e) => { e.stopPropagation(); remove(i) }}>삭제</button>
+            <Button onClick={(e) => { e.stopPropagation(); remove(i) }} variant="primary">삭제</Button>{' '}
           </div>
         )
       })
