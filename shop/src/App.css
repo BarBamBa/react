@@ -2,7 +2,21 @@
   text-align: center;
 }
 
-.main-bg { height:300px; background-image: url('../public/img/bg.png'); background-size: cover;
+.bar {
+  background-color: white !important;
+}
+
+.nav-link {
+  color: black;
+}
+.nav-link:hover {
+  color: black;
+}
+
+
+.main-bg { height:600px; background-image: url('../public/img/nikeBanner.jpg'); background-size: cover;
             background-position: center;}
+
+.item-card{ cursor:pointer;}
 
 

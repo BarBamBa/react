@@ -14,15 +14,15 @@ function App() {
 
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" data-bs-theme="dark" className='bar'>
         <Container>
-          <Navbar.Brand href="/">Shop</Navbar.Brand>
+          <Navbar.Brand onClick={() => { navigate('/') }}><img src={process.env.PUBLIC_URL + 'img/icon.png'} /></Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/detail">Detail</Nav.Link>
-            <div><a href="/detail">Detail</a></div>
-            <Link to="/detail">Detail2</Link>
-            <Nav.Link onClick={() => { navigate('/detail') }}>Detail2</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
+            {/* href로 이동을 하게되면 state가 초기화된다 */}
+            {/* <Nav.Link href="/detail/0">Detail</Nav.Link>
+            <Link to="/detail/0">Detail2</Link> */}
+            <Nav.Link onClick={() => { navigate('/detail/0') }}>Detail</Nav.Link>
             <Nav.Link onClick={() => { navigate(-1) }}>뒤로가기</Nav.Link>
             <Nav.Link onClick={() => { navigate(1) }}>앞으로가기</Nav.Link>
             <Nav.Link onClick={() => { navigate('/about') }}>About</Nav.Link>
@@ -32,7 +32,8 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Main shoes={shoes} />} />
-        <Route path='/detail' element={<Detail />} />
+        {/* url 파라미터  :작명  으로 쓴다 */}
+        <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
 
         {/* <Route path='/about' element={<About />} />
         <Route path='/about/member' element={<About />} />
@@ -67,9 +68,11 @@ const Main = (props) => {
 }
 
 const Card = (props) => {
+  let navigate = useNavigate();
+  console.log(props);
   return (
-    <Col >
-      <img src={`https://codingapple1.github.io/shop/shoes${props.shoes.id + 1}.jpg`} width='80%' />
+    <Col onClick={() => {navigate(`/detail/${props.shoes.id}`)}} className='item-card'>
+      <img src={`./img/shoes${props.shoes.id}.jpg`} width='80%' alt="shoes"/>
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.price}</p>
     </Col>
@@ -84,7 +87,7 @@ const About = () => {
       <Outlet></Outlet>
       <Button onClick={() => { navigate('member') }}>Member</Button> {/* /를 빼고 입력해야한다 */}
       <Button onClick={() => { navigate('location') }}>Location</Button>
-      {/* nested Route 들이 보여질 곳을 정해줌 */}
+      {/* nested Route 들이 보여질 곳을 정해줌 */} 
     </div>
 
   )
