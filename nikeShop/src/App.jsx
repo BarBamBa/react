@@ -17,7 +17,7 @@ function App() {
     <>
       <nav className='navbar'>
         <div className="navbar-logo" onClick={() => { navigate('/nikeShop/') }}>
-          <img src={'/img/logo.png'} />
+          <img src={'./img/logo.png'} />
         </div>
         <div className="navbar-menu">
           <li onClick={() => { navigate('/nikeShop/') }}>Home</li>
@@ -73,7 +73,7 @@ const Card = (props) => {
   console.log(props);
   return (
     <Col onClick={() => { navigate(`/nikeShop/detail/${props.shoes.id}`) }} className='item-card'>
-      <img src={`../public/img/shoes${props.shoes.id}.jpg`} alt="shoes" />
+      <img src={`./img/shoes${props.shoes.id}.jpg`} alt="shoes" />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.price}</p>
     </Col>
