@@ -47,7 +47,7 @@ const Detail = (props) => {
       <button onClick={() => { setCount(count + 1) }} >{`Button${count}`}</button>
       <div className="row">
         <div className="col-md-6">
-          <img src={`../../img/shoes${item.id}.jpg`} width="100%" />
+          <img src={`${process.env.PUBLIC_URL}/img/shoes${item.id}.jpg`} width="100%" />
         </div>
         <div className="col-md-6">
           <h4 className="pt-5">{item.title}</h4>

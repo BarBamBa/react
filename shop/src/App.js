@@ -8,7 +8,7 @@ import './App.css';
 import React from 'react'
 
 function App() {
-
+  console.log(process.env.PUBLIC_URL);
   const [shoes, setShoes] = useState(data);
   let navigate = useNavigate(); // 페이지 이동을 도와주는 Hook함수
 
@@ -72,7 +72,7 @@ const Card = (props) => {
   console.log(props);
   return (
     <Col onClick={() => {navigate(`/detail/${props.shoes.id}`)}} className='item-card'>
-      <img src={`./img/shoes${props.shoes.id}.jpg`} width='80%' alt="shoes"/>
+      <img src={`${process.env.PUBLIC_URL}/img/shoes${props.shoes.id}.jpg`} width='80%' alt="shoes"/>
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.price}</p>
     </Col>
