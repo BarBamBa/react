@@ -16,15 +16,15 @@ function App() {
   return (
     <>
       <nav className='navbar'>
-        <div className="navbar-logo" onClick={() => { navigate('/') }}>
+        <div className="navbar-logo" onClick={() => { navigate('/nikeShop/') }}>
           <img src={'/img/logo.png'} />
         </div>
         <div className="navbar-menu">
-          <li onClick={() => { navigate('/') }}>Home</li>
-          <li onClick={() => { navigate('/detail/0') }}>Detail</li>
+          <li onClick={() => { navigate('/nikeShop/') }}>Home</li>
+          <li onClick={() => { navigate('/nikeShop/detail/0') }}>Detail</li>
           <li onClick={() => { navigate(-1) }}>뒤로가기</li>
           <li onClick={() => { navigate(1) }}>앞으로가기</li>
-          <li onClick={() => { navigate('/about') }}>About</li>
+          <li onClick={() => { navigate('/nikeShop/about') }}>About</li>
         </div>
         <div className="navbar-icons">
           
@@ -32,16 +32,16 @@ function App() {
       </nav>
 
       <Routes Routes >
-        <Route path='/' element={<Main shoes={shoes} />} />
+        <Route path='/nikeShop/' element={<Main shoes={shoes} />} />
         {/* url 파라미터  :작명  으로 쓴다 */}
-        <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
+        <Route path='/nikeShop/detail/:id' element={<Detail shoes={shoes} />} />
 
         {/* <Route path='/about' element={<About />} />
         <Route path='/about/member' element={<About />} />
         <Route path='/about/location' element={<About />} /> */}
 
         {/* 위의 nested Route */}
-        <Route path='/about' element={<About />}>
+        <Route path='/nikeShop/about' element={<About />}>
           <Route path='member' element={<div>멤버정보임</div>} />  {/* /about/member */}
           <Route path='location' element={<div>위치정보임</div>} />  {/* /about/location */}
         </Route>
@@ -72,8 +72,8 @@ const Card = (props) => {
   let navigate = useNavigate();
   console.log(props);
   return (
-    <Col onClick={() => { navigate(`/detail/${props.shoes.id}`) }} className='item-card'>
-      <img src={`/img/shoes${props.shoes.id}.jpg`} alt="shoes" />
+    <Col onClick={() => { navigate(`/nikeShop/detail/${props.shoes.id}`) }} className='item-card'>
+      <img src={`../public/img/shoes${props.shoes.id}.jpg`} alt="shoes" />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.price}</p>
     </Col>
