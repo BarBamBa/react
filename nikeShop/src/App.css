@@ -55,3 +55,8 @@ li {
   justify-content: center;
   margin:auto;
 }
+
+.icons {
+  font-size: 35px;
+  color: white;
+}
